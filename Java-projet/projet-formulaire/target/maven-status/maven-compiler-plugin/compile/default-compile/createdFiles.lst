@@ -1,0 +1,5 @@
+formation\formation\service\CustomerServiceItf.class
+formation\persistence\CustomerDAOItf.class
+formation\domain\Customer.class
+formation\persistence\CustomerDAO.class
+formation\formation\service\CustomerService.class
