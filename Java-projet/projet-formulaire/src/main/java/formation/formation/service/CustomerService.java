@@ -8,7 +8,9 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-
+/**
+ * Service Customer
+ */
 @Remote
 @Stateless
 public class CustomerService implements CustomerServiceItf{
