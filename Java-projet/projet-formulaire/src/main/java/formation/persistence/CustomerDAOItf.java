@@ -16,7 +16,6 @@ public interface CustomerDAOItf {
      */
     public List<Customer> findAll();
 
-
     /**
      * allow to create user (without id)
      *
@@ -24,4 +23,12 @@ public interface CustomerDAOItf {
      * @return the new user.
      */
     public Customer create(Customer user);
+
+    /**
+     * Find a customer with the given identifier
+     *
+     * @param id The id of the customer
+     * @return The found customer or null if not found
+     */
+    public Customer find(Long id);
 }

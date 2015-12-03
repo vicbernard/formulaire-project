@@ -29,4 +29,7 @@ public class CustomerService implements CustomerServiceItf{
         Customer u =  dao.create(user);
         return u;
     }
+
+    @Override
+    public Customer get(Long id){return dao.find(id);}
 }

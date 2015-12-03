@@ -19,4 +19,11 @@ public interface CustomerServiceItf {
      * @return The created user.
      */
     public Customer create(Customer user);
+
+    /**
+     * Return the customer with the given identifier
+     * @param id the identifier of the customer
+     * @return  The found customer or null if not found.
+     */
+    public Customer get(Long id);
 }

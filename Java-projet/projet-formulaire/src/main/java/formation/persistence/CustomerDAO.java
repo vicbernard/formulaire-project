@@ -35,8 +35,12 @@ public class CustomerDAO implements CustomerDAOItf {
             for (ConstraintViolation<?> constraintViolation : e.getConstraintViolations()) {
                 throw new IllegalArgumentException(constraintViolation.getMessage(), e);
             }
-
         }
             return user;
     }
+
+    @Override
+    public Customer find(Long id){return em.find(Customer.class,id);}
+
+
 }
