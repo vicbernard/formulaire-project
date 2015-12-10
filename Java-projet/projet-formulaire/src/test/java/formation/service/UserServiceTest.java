@@ -53,7 +53,7 @@ public class UserServiceTest {
 
         int initSize = userService.total();
         Customer u = new Customer();
-        u.setFistName("test");
+        u.setFirstname("test");
         u.setName("nameTest");
         u.setMail("test@test.fr");
         u.setPwd("coucou");
@@ -73,7 +73,7 @@ public class UserServiceTest {
                 narrow(ejb, CustomerServiceItf.class);
 
         Customer u = new Customer();
-        u.setFistName("test");
+        u.setFirstname("test");
         u.setName(null);
         u.setMail("test@test.fr");
         u.setPwd("coucou");
