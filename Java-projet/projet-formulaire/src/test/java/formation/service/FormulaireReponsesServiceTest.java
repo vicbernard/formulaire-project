@@ -47,7 +47,7 @@ public class FormulaireReponsesServiceTest {
 
     @Test
     public void validCase_createUser() throws NamingException {
-        Object ejb = ctx.lookup("java:global/projet-1.0.0-SNAPSHOT/formulaireReponses");
+        Object ejb = ctx.lookup("java:global/projet-1.0.0-SNAPSHOT/FormulaireReponsesService");
         assertNotNull(ejb);
 
         // Looks up the EJB
