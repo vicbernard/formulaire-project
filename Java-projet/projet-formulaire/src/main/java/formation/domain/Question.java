@@ -1,18 +1,24 @@
 package formation.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
-public class Question {
+@NamedQueries({
+        @NamedQuery(name = "Question.findAll", query = "select c from Question c")
+})
+public class Question implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idQuestion;
     private String libelle;
     private Questionnaire questionnaireByIdQuestionnaire;
-    private Paramtypequestion paramtypequestionByIdType;
+    private ParamtypeQuestion paramtypequestionByIdType;
 
-    @Id
     @Column(name = "IdQuestion")
     public int getIdQuestion() {
         return idQuestion;
@@ -64,11 +70,11 @@ public class Question {
 
     @ManyToOne
     @JoinColumn(name = "IdType", referencedColumnName = "IdType", nullable = false)
-    public Paramtypequestion getParamtypequestionByIdType() {
+    public ParamtypeQuestion getParamtypequestionByIdType() {
         return paramtypequestionByIdType;
     }
 
-    public void setParamtypequestionByIdType(Paramtypequestion paramtypequestionByIdType) {
+    public void setParamtypequestionByIdType(ParamtypeQuestion paramtypequestionByIdType) {
         this.paramtypequestionByIdType = paramtypequestionByIdType;
     }
 }

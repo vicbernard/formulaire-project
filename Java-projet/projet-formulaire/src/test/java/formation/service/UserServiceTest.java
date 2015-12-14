@@ -2,7 +2,7 @@ package formation.service;
 
 import formation.domain.Customer;
 
-import formation.formation.service.CustomerServiceItf;
+import formation.formation.service.itf.CustomerServiceItf;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -75,7 +75,7 @@ public class UserServiceTest {
         Customer u = new Customer();
         u.setFirstname("test");
         u.setName(null);
-        u.setMail("test@test.fr");
+        u.setMail("test2@test.fr");
         u.setPwd("coucou");
         try {
             userService.create(u);

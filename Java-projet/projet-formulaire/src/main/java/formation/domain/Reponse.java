@@ -1,18 +1,24 @@
 package formation.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
-public class Reponse {
+@NamedQueries({
+        @NamedQuery(name = "Reponse.findAll", query = "select c from Reponse c")
+})
+public class Reponse implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idReponse;
     private String reponse;
     private Question questionByIdQuestion;
-    private Formulairereponses formulairereponsesByIdFormulaire;
+    private FormulaireReponses formulairereponsesByIdFormulaire;
 
-    @Id
     @Column(name = "IdReponse")
     public int getIdReponse() {
         return idReponse;
@@ -64,11 +70,11 @@ public class Reponse {
 
     @ManyToOne
     @JoinColumn(name = "IdFormulaire", referencedColumnName = "idFormulaire", nullable = false)
-    public Formulairereponses getFormulairereponsesByIdFormulaire() {
+    public FormulaireReponses getFormulairereponsesByIdFormulaire() {
         return formulairereponsesByIdFormulaire;
     }
 
-    public void setFormulairereponsesByIdFormulaire(Formulairereponses formulairereponsesByIdFormulaire) {
+    public void setFormulairereponsesByIdFormulaire(FormulaireReponses formulairereponsesByIdFormulaire) {
         this.formulairereponsesByIdFormulaire = formulairereponsesByIdFormulaire;
     }
 }
