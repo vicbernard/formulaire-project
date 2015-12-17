@@ -1,4 +1,4 @@
-package formation.formation.service;
+package formation.formation.service.itf;
 
 import formation.domain.Customer;
 

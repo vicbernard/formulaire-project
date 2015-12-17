@@ -1,19 +1,19 @@
-package formation.formation.service;
+package formation.formation.service.service;
 
 import formation.domain.Customer;
-import formation.persistence.CustomerDAOItf;
+import formation.formation.service.itf.CustomerServiceItf;
+import formation.persistence.customer.CustomerDAOItf;
 
 import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 
 /**
  * Service Customer
  */
 @Remote
 @Stateless
-public class CustomerService implements CustomerServiceItf{
+public class CustomerService implements CustomerServiceItf {
 
     @EJB
     CustomerDAOItf dao;

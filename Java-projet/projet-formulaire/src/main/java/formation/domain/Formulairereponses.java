@@ -1,16 +1,22 @@
 package formation.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
-public class Formulairereponses {
+@NamedQueries({
+        @NamedQuery(name = "FormulaireReponses.findAll", query = "select c from FormulaireReponses c")
+})
+public class FormulaireReponses implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idFormulaire;
     private Customer customerByIdUser;
 
-    @Id
     @Column(name = "idFormulaire")
     public int getIdFormulaire() {
         return idFormulaire;
@@ -25,7 +31,7 @@ public class Formulairereponses {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Formulairereponses that = (Formulairereponses) o;
+        FormulaireReponses that = (FormulaireReponses) o;
 
         if (idFormulaire != that.idFormulaire) return false;
 

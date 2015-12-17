@@ -1,10 +1,8 @@
-package formation.persistence;
+package formation.persistence.reponseqcm;
 
-import formation.domain.Customer;
+import formation.domain.Reponseqcm;
 
 import javax.ejb.Local;
-import javax.ejb.LocalBean;
-import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,34 +11,38 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.List;
 
+/**
+ * Created by victor on 14/12/2015.
+ */
 @Local
 @Stateless
-public class CustomerDAO implements CustomerDAOItf {
+public class ReponseqcmDAO implements ReponseqcmDAOItf {
 
     @PersistenceContext(unitName = "projet")
     private EntityManager em;
 
     @Override
-    public List<Customer> findAll() {
-         TypedQuery<Customer> query = em.createNamedQuery("findAll", Customer.class);
-         return query.getResultList();
+    public List<Reponseqcm> findAll() {
+        TypedQuery<Reponseqcm> query = em.createNamedQuery("Reponseqcm.findAll", Reponseqcm.class);
+        return query.getResultList();
     }
 
     @Override
-    public Customer create(Customer user) {
+    public Reponseqcm create(Reponseqcm reponseqcm) {
         //TODO manage transaction ??
         try {
-            em.persist(user);
+            em.persist(reponseqcm);
         } catch (ConstraintViolationException e) {
             for (ConstraintViolation<?> constraintViolation : e.getConstraintViolations()) {
                 throw new IllegalArgumentException(constraintViolation.getMessage(), e);
             }
         }
-            return user;
+        return reponseqcm;
+
     }
 
     @Override
-    public Customer find(Long id){return em.find(Customer.class,id);}
-
-
+    public Reponseqcm find(Long id) {
+        return em.find(Reponseqcm.class,id);
+    }
 }

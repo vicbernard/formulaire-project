@@ -1,4 +1,4 @@
-package formation.persistence;
+package formation.persistence.customer;
 
 import formation.domain.Customer;
 

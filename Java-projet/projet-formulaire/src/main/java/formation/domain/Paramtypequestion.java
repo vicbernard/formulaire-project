@@ -1,19 +1,22 @@
 package formation.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
-public class Paramtypequestion {
+@NamedQueries({
+        @NamedQuery(name = "ParamtypeQuestion.findAll", query = "select c from ParamtypeQuestion c")
+})
+public class ParamtypeQuestion implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idType;
     private String libelle;
 
-    @Id
     @Column(name = "IdType")
     public int getIdType() {
         return idType;
@@ -38,7 +41,7 @@ public class Paramtypequestion {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Paramtypequestion that = (Paramtypequestion) o;
+        ParamtypeQuestion that = (ParamtypeQuestion) o;
 
         if (idType != that.idType) return false;
         if (libelle != null ? !libelle.equals(that.libelle) : that.libelle != null) return false;

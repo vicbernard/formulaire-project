@@ -1,16 +1,20 @@
 package formation.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
-public class Customer {
+@NamedQueries({
+        @NamedQuery(name = "Customer.findAll", query = "select c from Customer c")
+})
+public class Customer implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String mail;
@@ -20,7 +24,6 @@ public class Customer {
     private String sex;
     private Date dateinscription;
 
-    @Id
     @Column(name = "id")
     public int getId() {
         return id;

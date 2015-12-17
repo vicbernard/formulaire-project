@@ -1,18 +1,24 @@
 package formation.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
-public class Questionnaire {
+@NamedQueries({
+        @NamedQuery(name = "Questionnaire.findAll", query = "select c from Questionnaire c")
+})
+public class Questionnaire implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idQuestionnaire;
     private String libelle;
     private Boolean prive;
     private Customer customerByIdUser;
 
-    @Id
     @Column(name = "IdQuestionnaire")
     public int getIdQuestionnaire() {
         return idQuestionnaire;

@@ -1,17 +1,23 @@
 package formation.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
-public class Reponseqcm {
+@NamedQueries({
+        @NamedQuery(name = "Reponseqcm.findAll", query = "select c from Reponseqcm c")
+})
+public class Reponseqcm implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idReponseQcm;
     private String libelle;
     private Question questionByIdQuestion;
 
-    @Id
     @Column(name = "idReponseQCM")
     public int getIdReponseQcm() {
         return idReponseQcm;

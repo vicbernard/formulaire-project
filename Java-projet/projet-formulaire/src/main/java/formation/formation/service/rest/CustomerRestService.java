@@ -1,6 +1,7 @@
-package formation.formation.service;
+package formation.formation.service.rest;
 
 import formation.domain.Customer;
+import formation.formation.service.itf.CustomerServiceItf;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
