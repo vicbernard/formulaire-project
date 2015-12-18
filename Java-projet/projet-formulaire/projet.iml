@@ -12,7 +12,6 @@
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$MODULE_DIR$/target/generated-sources/annotations" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -20,7 +19,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="projet" />
+        </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
@@ -37,7 +38,6 @@
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-status" />
       <excludeFolder url="file://$MODULE_DIR$/target/projet-1.0.0-SNAPSHOT" />
-      <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
       <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -77,7 +77,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.sun:tools-jar:1">
         <CLASSES>
-          <root url="jar://C:/Program Files/Java/jdk1.7.0_79/lib/tools.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_40/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
