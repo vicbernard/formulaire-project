@@ -31,4 +31,6 @@ public interface CustomerDAOItf {
      * @return The found customer or null if not found
      */
     public Customer find(Long id);
+
+    public Boolean connection(String mail, String mdp);
 }
