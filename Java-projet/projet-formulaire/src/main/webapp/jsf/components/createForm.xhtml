@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Création du formulaire</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Informations sur votre formulaire
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <h:form role="form">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Nom du formulaire :</label>
+                                        <h:inputText class="form-control"/>
+                                        <p class="help-block">Ce nom est celui sous lequel apparaitra votre formulaire pour les personnes qui y répondront.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description de votre formulaire :</label>
+                                        <h:inputTextarea class="form-control" placeholder="Enter text"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Lien de votre formulaire</label>
+                                        <p class="form-control-static">lienformulaire.com</p>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Statut du formulaire :</label><br/>
+                                        <h:selectBooleanCheckbox value="1"/>
+                                        <h:outputLabel value="Public" />
+                                        <p class="help-block">Si votre formulaire est public toutes personnes ayant le lien pourront y répondre.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nombre de question de votre formulaire :</label>
+                                        <h:selectOneMenu value="1" class="form-control" >
+                                            <f:selectItem
+                                                    itemValue="1"
+                                                    itemLabel="1"/>
+                                            <f:selectItem
+                                                    itemValue="2"
+                                                    itemLabel="2"/>
+                                            <f:selectItem
+                                                    itemValue="3"
+                                                    itemLabel="3"/>
+                                            <f:selectItem
+                                                    itemValue="4"
+                                                    itemLabel="4"/>
+                                            <f:selectItem
+                                                    itemValue="5"
+                                                    itemLabel="5"/>
+                                            <f:selectItem
+                                                    itemValue="6"
+                                                    itemLabel="6"/>
+                                            <f:selectItem
+                                                    itemValue="7"
+                                                    itemLabel="7"/>
+                                            <f:selectItem
+                                                    itemValue="8"
+                                                    itemLabel="8"/>
+                                            <f:selectItem
+                                                    itemValue="9"
+                                                    itemLabel="9"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                            </h:form>
+                            <!-- /.col-lg-6 (nested) -->
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Question(s) votre formulaire
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <h:form role="form">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Nom de la question :</label>
+                                        <h:inputText class="form-control"/>
+                                        <p class="help-block">Ce nom est celui qui apparaitra sur votre formulaire pour cette question.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description de votre question :</label>
+                                        <h:inputTextarea class="form-control" placeholder="Enter text"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Type de question :</label>
+                                        <h:selectOneMenu value="1" class="form-control" >
+                                            <f:selectItem
+                                                    itemValue="1"
+                                                    itemLabel="1"/>
+                                            <f:selectItem
+                                                    itemValue="2"
+                                                    itemLabel="2"/>
+                                            <f:selectItem
+                                                    itemValue="3"
+                                                    itemLabel="3"/>
+                                            <f:selectItem
+                                                    itemValue="4"
+                                                    itemLabel="4"/>
+                                            <f:selectItem
+                                                    itemValue="5"
+                                                    itemLabel="5"/>
+                                            <f:selectItem
+                                                    itemValue="6"
+                                                    itemLabel="6"/>
+                                            <f:selectItem
+                                                    itemValue="7"
+                                                    itemLabel="7"/>
+                                            <f:selectItem
+                                                    itemValue="8"
+                                                    itemLabel="8"/>
+                                            <f:selectItem
+                                                    itemValue="9"
+                                                    itemLabel="9"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                </div>
+                            </h:form>
+                            <!-- /.col-lg-6 (nested) -->
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+</ui:composition>
+</html>
