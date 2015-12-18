@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
     <title>Projet Formulaire J2EE</title>
     <!-- Bootstrap Core CSS -->
@@ -29,23 +30,22 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <h:form id="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" ></input>
+                                    <h:inputText id="mail" a:placeholder="Email" styleClass="form-control" value="#{connectionBean.customer.mail}" required="true" requiredMessage="Champs Obligatoire">
+                                        <f:validator validatorId="emailValidator" />
+                                    </h:inputText>
+                                    <h:message for="mail" style="color:red"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value=""></input>
+                                    <h:inputSecret id="mdp" styleClass="form-control" a:placeholder="Password" value="#{connectionBean.customer.pwd}" required="true" requiredMessage="Champs Obligatoire"/>
+                                    <h:message for="mdp" style="color:red"/>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me</input>
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <h:commandButton value="Login" action="#{connectionBean.connection}" styleClass="btn btn-lg btn-success btn-block"/>
+
                             </fieldset>
-                        </form>
+                        </h:form>
                     </div>
                 </div>
             </div>

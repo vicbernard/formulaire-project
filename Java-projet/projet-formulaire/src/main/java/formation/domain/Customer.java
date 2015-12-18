@@ -9,7 +9,8 @@ import java.sql.Date;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Customer.findAll", query = "select c from Customer c")
+        @NamedQuery(name = "Customer.findAll", query = "select c from Customer c"),
+        @NamedQuery(name = "Customer.connection", query = "Select c from Customer c where c.mail = :mail and c.pwd = :pwd")
 })
 public class Customer implements Serializable {
 
