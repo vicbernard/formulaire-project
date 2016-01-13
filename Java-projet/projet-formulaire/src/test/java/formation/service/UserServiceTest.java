@@ -2,7 +2,7 @@ package formation.service;
 
 import formation.domain.Customer;
 
-import formation.formation.service.CustomerServiceItf;
+import formation.formation.service.itf.CustomerServiceItf;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -53,7 +53,7 @@ public class UserServiceTest {
 
         int initSize = userService.total();
         Customer u = new Customer();
-        u.setFistName("test");
+        u.setFirstname("test");
         u.setName("nameTest");
         u.setMail("test@test.fr");
         u.setPwd("coucou");
@@ -73,9 +73,9 @@ public class UserServiceTest {
                 narrow(ejb, CustomerServiceItf.class);
 
         Customer u = new Customer();
-        u.setFistName("test");
+        u.setFirstname("test");
         u.setName(null);
-        u.setMail("test@test.fr");
+        u.setMail("test2@test.fr");
         u.setPwd("coucou");
         try {
             userService.create(u);

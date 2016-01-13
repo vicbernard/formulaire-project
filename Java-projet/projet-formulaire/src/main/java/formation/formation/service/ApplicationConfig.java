@@ -1,6 +1,7 @@
 package formation.formation.service;
 
 import formation.domain.Customer;
+import formation.formation.service.rest.CustomerRestService;
 import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
 import javax.ws.rs.ApplicationPath;

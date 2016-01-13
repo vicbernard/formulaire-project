@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Projet Formulaire J2EE</title>
+    <!-- Bootstrap Core CSS -->
+    <h:outputStylesheet name="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- MetisMenu CSS -->
+    <h:outputStylesheet name="/bower_components/metisMenu/dist/metisMenu.min.css" />
+    <!-- Timeline CSS -->
+    <h:outputStylesheet name="/dist/css/timeline.css" />
+    <!-- Custom CSS -->
+    <h:outputStylesheet name="/dist/css/sb-admin-2.css" />
+    <!-- Morris Charts CSS -->
+    <h:outputStylesheet name="/bower_components/morrisjs/morris.css" />
+    <!-- Custom Fonts -->
+    <h:outputStylesheet library="webjars" name="font-awesome/4.3.0/css/font-awesome-jsf.css" />
+</h:head>
+<h:body>
+
+
+    <div id="wrapper">
+        <ui:insert name="header" >
+            <ui:include src="template/header.xhtml" />
+        </ui:insert>
+        <ui:insert name="content" >
+            <ui:include src="components/contents.xhtml" />
+        </ui:insert>
+    </div>
+    <ui:insert name="footer" >
+        <ui:include src="template/footer.xhtml" />
+    </ui:insert>
+    <!-- Morris Charts JavaScript -->
+    <h:outputScript name="/bower_components/raphael/raphael-min.js" />
+    <h:outputScript name="/bower_components/morrisjs/morris.js" />
+    <h:outputScript name="/js/morris-data.js" />
+</h:body>
+</html>
