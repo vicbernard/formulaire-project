@@ -32,5 +32,5 @@ public interface CustomerDAOItf {
      */
     public Customer find(Long id);
 
-    public Boolean connection(String mail, String mdp);
+    public Customer connection(String mail, String mdp);
 }

@@ -1,4 +1,6 @@
 formation\persistence\customer\CustomerDAO.class
+bean\SelectItemsConverter.class
+bean\SessionBean.class
 formation\persistence\question\QuestionDAO.class
 formation\domain\CustomerOld.class
 formation\domain\Reponseqcm_.class
@@ -7,6 +9,7 @@ formation\formation\service\service\FormulaireReponsesService.class
 formation\formation\service\rest\QuestionnaireRestService.class
 formation\domain\Customer_.class
 formation\formation\service\rest\ReponseqcmRestService.class
+bean\StaticList.class
 formation\domain\FormulaireReponses_.class
 formation\domain\Question.class
 formation\persistence\paramtypeQuestion\ParamtypeQuestionDAOItf.class
@@ -17,6 +20,7 @@ validator\EmailValidator.class
 formation\domain\Questionnaire.class
 formation\persistence\reponseqcm\ReponseqcmDAO.class
 formation\domain\Question_.class
+bean\FormulaireBean.class
 formation\formation\service\itf\QuestionItf.class
 formation\persistence\questionnaire\QuestionnaireDAOItf.class
 formation\domain\Customer.class

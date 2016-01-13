@@ -44,20 +44,20 @@ public class CustomerDAO implements CustomerDAOItf {
     }
 
     @Override
-    public Boolean connection(String mail, String mdp) {
+    public Customer connection(String mail, String mdp) {
         TypedQuery<Customer> query = em.createNamedQuery("Customer.connection", Customer.class);
         query.setParameter("mail", mail);
         query.setParameter("pwd", mdp);
         try {
             Customer c = query.getSingleResult();
             if (c != null) {
-                return true;
+                return c;
             }
         }catch(NoResultException e){
             //TODO: erreur pas d'entrée en base trouvée
         }
 
-        return false;
+        return null;
     }
 
 

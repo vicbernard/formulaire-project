@@ -6,6 +6,7 @@ import formation.persistence.customer.CustomerDAOItf;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -22,12 +23,16 @@ public class ConnectionBean implements Serializable {
     @EJB
     private CustomerDAOItf customerDAOItf;
 
+    @ManagedProperty(value="#{sessionBean}")
+    private SessionBean sessionBean;
+
 
     private Customer customer = new Customer();
 
     public void connection(){
-        Boolean connected = customerDAOItf.connection(getCustomer().getMail(), getCustomer().getPwd());
-        if(connected){
+        customer = customerDAOItf.connection(getCustomer().getMail(), getCustomer().getPwd());
+        if(customer != null){
+            getSessionBean().setCustomer(customer);
             ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
             try {
                 context.redirect("index.xhtml");
@@ -45,5 +50,13 @@ public class ConnectionBean implements Serializable {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public SessionBean getSessionBean() {
+        return sessionBean;
+    }
+
+    public void setSessionBean(SessionBean sessionBean) {
+        this.sessionBean = sessionBean;
     }
 }
