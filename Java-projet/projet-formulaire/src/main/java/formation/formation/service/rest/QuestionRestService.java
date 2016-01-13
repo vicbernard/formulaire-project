@@ -4,6 +4,9 @@ import formation.domain.Question;
 import formation.formation.service.itf.QuestionItf;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -16,6 +19,7 @@ import java.net.URI;
 @Path("/question")
 @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+@Stateless
 public class QuestionRestService {
 
     @EJB

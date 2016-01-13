@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 <ui:composition>
-    <f:event listener="#{mesFormulairesBean.initialize(sessionBean.customer.id)}" type="preRenderView" />
+    <f:event listener="#{mesFormulairesBean.initializeMyForms(sessionBean.customer.id)}" type="preRenderView" />
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
@@ -16,7 +16,6 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
-        <h:form role="form">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -30,13 +29,15 @@
                                         <tr>
                                             <th>Nom</th>
                                             <th>Nombre de questions</th>
+                                            <th>Generate</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <ui:repeat value="#{mesFormulairesBean.listeQuestionnaires}" var="quest">
                                             <tr>
-                                                <td><h:commandButton value="#{quest.questionnaire.libelle}" action="#{mesFormulairesBean.loadForm(quest)}" styleClass="btn btn-link"/></td>
+                                                <td><h:commandButton value="#{quest.questionnaire.libelle}" action="#{mesFormulairesBean.initializeForm(quest,true)}" styleClass="btn btn-link"><f:ajax render="@all"/></h:commandButton></td>
                                                 <td>#{quest.nbQuestions}</td>
+                                                <td><h:commandButton value="***" action="#{mesFormulairesBean.saveReponse(quest)}" styleClass="btn btn-link"><f:ajax render="@all"/></h:commandButton></td>
                                             </tr>
                                         </ui:repeat>
                                     </tbody>
@@ -52,7 +53,6 @@
             </div>
             <!-- /.row -->
         <!-- /.row -->
-        </h:form>
     </div>
     <!-- /#page-wrapper -->
 </ui:composition>

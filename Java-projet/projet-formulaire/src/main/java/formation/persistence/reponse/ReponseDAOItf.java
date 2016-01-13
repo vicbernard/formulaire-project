@@ -14,4 +14,6 @@ public interface ReponseDAOItf {
     public Reponse create(Reponse question);
 
     public Reponse find(Long id);
+
+    public List<Reponse> findByQuestion(int id);
 }

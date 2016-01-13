@@ -25,5 +25,5 @@ public interface CustomerServiceItf {
      * @param id the identifier of the customer
      * @return  The found customer or null if not found.
      */
-    public Customer get(Long id);
+    public Customer get(int id);
 }

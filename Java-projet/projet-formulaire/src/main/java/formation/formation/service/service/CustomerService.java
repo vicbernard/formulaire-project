@@ -31,5 +31,5 @@ public class CustomerService implements CustomerServiceItf {
     }
 
     @Override
-    public Customer get(Long id){return dao.find(id);}
+    public Customer get(int id){return dao.find(id);}
 }

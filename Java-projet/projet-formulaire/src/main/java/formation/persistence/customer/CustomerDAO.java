@@ -39,7 +39,7 @@ public class CustomerDAO implements CustomerDAOItf {
     }
 
     @Override
-    public Customer find(Long id) {
+    public Customer find(int id) {
         return em.find(Customer.class, id);
     }
 

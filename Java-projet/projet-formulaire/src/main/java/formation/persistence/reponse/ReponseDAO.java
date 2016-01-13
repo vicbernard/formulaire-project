@@ -44,4 +44,11 @@ public class ReponseDAO implements ReponseDAOItf {
     public Reponse find(Long id) {
         return em.find(Reponse.class,id);
     }
+
+    @Override
+    public List<Reponse> findByQuestion(int id) {
+        TypedQuery<Reponse> query = em.createNamedQuery("Reponse.findByQuestion", Reponse.class);
+        query.setParameter("id",id);
+        return query.getResultList();
+    }
 }

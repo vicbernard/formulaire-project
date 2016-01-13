@@ -4,6 +4,7 @@ import formation.domain.Questionnaire;
 import formation.formation.service.itf.QuestionnaireItf;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -16,6 +17,7 @@ import java.net.URI;
 @Path("/questionnaire")
 @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+@Stateless
 public class QuestionnaireRestService {
 
     @EJB

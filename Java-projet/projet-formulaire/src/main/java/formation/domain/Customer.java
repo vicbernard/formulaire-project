@@ -1,6 +1,7 @@
 package formation.domain;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -8,6 +9,7 @@ import java.sql.Date;
  * Created by victor on 10/12/2015.
  */
 @Entity
+@XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "Customer.findAll", query = "select c from Customer c"),
         @NamedQuery(name = "Customer.connection", query = "Select c from Customer c where c.mail = :mail and c.pwd = :pwd")

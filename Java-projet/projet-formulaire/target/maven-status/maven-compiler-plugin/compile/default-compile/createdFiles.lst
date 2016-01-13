@@ -1,4 +1,5 @@
 formation\persistence\customer\CustomerDAO.class
+formation\classTmp\ReponseMoyenne.class
 bean\SelectItemsConverter.class
 bean\tmpObject\QuestionnaireDTO.class
 bean\SessionBean.class
@@ -13,7 +14,6 @@ formation\domain\Customer_.class
 formation\formation\service\rest\ReponseqcmRestService.class
 bean\StaticList.class
 formation\domain\FormulaireReponses_.class
-bean\FormulaireGenereBean.class
 formation\domain\Question.class
 formation\persistence\paramtypeQuestion\ParamtypeQuestionDAOItf.class
 formation\persistence\question\QuestionDAOItf.class

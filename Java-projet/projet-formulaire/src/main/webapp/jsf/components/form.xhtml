@@ -7,6 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 <ui:composition>
+
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
@@ -15,39 +16,33 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
-        <h:form role="form">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Formulaire #{formulaireGenereBean.questionnaireDTO.questionnaire.libelle}
+                            Formulaire #{mesFormulairesBean.questionnaireDTO.questionnaire.libelle}
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <ui:repeat value="#{formulaireGenereBean.listReponses}" var="rep">
+                                    <ui:repeat value="#{mesFormulairesBean.listReponses}" var="rep" varStatus="myVarStatus">
                                         <div class="form-group">
-                                            <label>#{rep.questionByIdQuestion.libelle}</label>
-                                            <c:if test="#{rep.questionByIdQuestion.paramtypequestionByIdType.libelle == 'Oui/Non'}">
-                                                <h:selectOneRadio value="#{rep.reponse}">
+                                            <label>#{myVarStatus.index+1}. #{rep.questionByIdQuestion.libelle}</label>
+                                            <div id="container" class="container">
+                                                <h:selectOneRadio value="#{rep.reponse}" rendered="#{rep.questionByIdQuestion.paramtypequestionByIdType.libelle == 'Oui/Non'}" styleClass="myradio">
                                                     <f:selectItem itemValue="Oui" itemLabel="Oui" />
                                                     <f:selectItem itemValue="Non" itemLabel="Non" />
                                                 </h:selectOneRadio>
-                                            </c:if>
-                                            <c:if test="#{rep.questionByIdQuestion.paramtypequestionByIdType.libelle == 'Ouverte'}">
-                                                <h:inputTextarea class="form-control" placeholder="Enter text" value="#{rep.reponse}"/>
-                                            </c:if>
-                                            <c:if test="#{rep.questionByIdQuestion.paramtypequestionByIdType.libelle == 'Date'}">
-                                               <h:inputText value="#{rep.reponse}" styleClass="form-control"/>
-                                            </c:if>
+                                            </div>
+                                            <h:inputTextarea class="form-control" placeholder="Enter text" value="#{rep.reponse}" rendered="#{rep.questionByIdQuestion.paramtypequestionByIdType.libelle == 'Ouverte'}"/>
+                                            <h:inputText value="#{rep.reponse}" styleClass="form-control" rendered="#{rep.questionByIdQuestion.paramtypequestionByIdType.libelle == 'Date'}"/>
                                         </div>
                                     </ui:repeat>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                </div>
 
+
+                                </div>
                                 <!-- /.col-lg-6 (nested) -->
+
                             </div>
                             <!--   /.row (nested) -->
                         </div>
@@ -59,7 +54,6 @@
             </div>
             <!-- /.row -->
         <!-- /.row -->
-        </h:form>
     </div>
     <!-- /#page-wrapper -->
 </ui:composition>

@@ -1,12 +1,14 @@
 package formation.domain;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
  * Created by victor on 10/12/2015.
  */
 @Entity
+@XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "Questionnaire.findAll", query = "select c from Questionnaire c"),
         @NamedQuery(name = "Questionnaire.findByUser", query = "select c from Questionnaire c where c.customerByIdUser.id = :idUser")

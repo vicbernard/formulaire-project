@@ -25,7 +25,6 @@ C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\mai
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\persistence\question\QuestionDAO.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\persistence\reponseqcm\ReponseqcmDAOItf.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\formation\service\service\CustomerService.java
-C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\bean\FormulaireGenereBean.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\persistence\paramtypeQuestion\ParamtypeQuestionDAO.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\formation\service\service\FormulaireReponsesService.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\formation\service\itf\ParamtypeQuestionItf.java
@@ -47,6 +46,7 @@ C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\mai
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\persistence\question\QuestionDAOItf.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\bean\SelectItemsConverter.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\persistence\customer\CustomerDAO.java
+C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\classTmp\ReponseMoyenne.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\formation\service\itf\QuestionnaireItf.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\formation\service\itf\QuestionItf.java
 C:\Users\victor\Desktop\formulaire-project\Java-projet\projet-formulaire\src\main\java\formation\domain\Question.java

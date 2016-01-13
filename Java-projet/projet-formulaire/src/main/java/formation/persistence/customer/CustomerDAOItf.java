@@ -30,7 +30,7 @@ public interface CustomerDAOItf {
      * @param id The id of the customer
      * @return The found customer or null if not found
      */
-    public Customer find(Long id);
+    public Customer find(int id);
 
     public Customer connection(String mail, String mdp);
 }
