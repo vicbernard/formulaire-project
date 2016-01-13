@@ -44,4 +44,11 @@ public class QuestionDAO implements QuestionDAOItf {
     public Question find(Long id) {
         return em.find(Question.class,id);
     }
+
+    @Override
+    public List<Question> findByQuestionnaireId(int id) {
+        TypedQuery<Question> query = em.createNamedQuery("Question.findByQuestionnaire", Question.class);
+        query.setParameter("idQuestionnaire", id);
+        return query.getResultList();
+    }
 }

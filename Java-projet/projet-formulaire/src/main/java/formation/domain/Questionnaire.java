@@ -8,7 +8,8 @@ import java.io.Serializable;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Questionnaire.findAll", query = "select c from Questionnaire c")
+        @NamedQuery(name = "Questionnaire.findAll", query = "select c from Questionnaire c"),
+        @NamedQuery(name = "Questionnaire.findByUser", query = "select c from Questionnaire c where c.customerByIdUser.id = :idUser")
 })
 public class Questionnaire implements Serializable {
 

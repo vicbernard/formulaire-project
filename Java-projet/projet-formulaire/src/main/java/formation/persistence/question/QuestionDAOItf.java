@@ -14,4 +14,6 @@ public interface QuestionDAOItf {
     public Question create(Question question);
 
     public Question find(Long id);
+
+    public List<Question> findByQuestionnaireId(int id);
 }

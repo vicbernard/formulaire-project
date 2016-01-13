@@ -45,4 +45,11 @@ public class QuestionnaireDAO implements QuestionnaireDAOItf {
     public Questionnaire find(Long id) {
         return em.find(Questionnaire.class,id);
     }
+
+    @Override
+    public List<Questionnaire> ListQuestionnaireFindByUser(int idUser) {
+        TypedQuery<Questionnaire> query = em.createNamedQuery("Questionnaire.findByUser", Questionnaire.class);
+        query.setParameter("idUser", idUser);
+        return query.getResultList();
+    }
 }

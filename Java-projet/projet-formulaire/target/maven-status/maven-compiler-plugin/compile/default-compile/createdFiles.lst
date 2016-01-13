@@ -1,5 +1,6 @@
 formation\persistence\customer\CustomerDAO.class
 bean\SelectItemsConverter.class
+bean\tmpObject\QuestionnaireDTO.class
 bean\SessionBean.class
 formation\persistence\question\QuestionDAO.class
 formation\domain\CustomerOld.class
@@ -7,10 +8,12 @@ formation\domain\Reponseqcm_.class
 formation\domain\Reponse.class
 formation\formation\service\service\FormulaireReponsesService.class
 formation\formation\service\rest\QuestionnaireRestService.class
+bean\MesFormulairesBean.class
 formation\domain\Customer_.class
 formation\formation\service\rest\ReponseqcmRestService.class
 bean\StaticList.class
 formation\domain\FormulaireReponses_.class
+bean\FormulaireGenereBean.class
 formation\domain\Question.class
 formation\persistence\paramtypeQuestion\ParamtypeQuestionDAOItf.class
 formation\persistence\question\QuestionDAOItf.class

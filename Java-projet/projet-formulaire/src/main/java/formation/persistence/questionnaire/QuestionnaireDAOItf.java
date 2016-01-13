@@ -14,4 +14,6 @@ public interface QuestionnaireDAOItf {
     public Questionnaire create(Questionnaire question);
 
     public Questionnaire find(Long id);
+
+    public List<Questionnaire> ListQuestionnaireFindByUser(int idUser);
 }
