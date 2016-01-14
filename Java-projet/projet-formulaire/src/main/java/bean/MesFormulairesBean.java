@@ -12,6 +12,9 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,8 +90,8 @@ public class MesFormulairesBean implements Serializable {
 
     public void saveReponse(QuestionnaireDTO questi){
         initializeForm(questi,false);
-        System.out.println("SaveReponse ");
-        System.out.println(nbGenerate);
+        //System.out.println("SaveReponse ");
+        //System.out.println(nbGenerate);
         for(int i=0;i<nbGenerate;i++) {
             FormulaireReponses formulaireReponses = new FormulaireReponses();
             formulaireReponses.setCustomerByIdUser(customer);
@@ -114,6 +117,12 @@ public class MesFormulairesBean implements Serializable {
                 repSave.setQuestionByIdQuestion(r.getQuestionByIdQuestion());
                 reponseDAOItf.create(repSave);
             }
+        }
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            context.redirect("myForms.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

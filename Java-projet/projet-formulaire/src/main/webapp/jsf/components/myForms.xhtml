@@ -23,13 +23,14 @@
                             Liste de vos formulaires
                         </div>
                         <div class="panel-body">
+                            <label>Nombre de réponses à générer:</label>
                             <h:inputText value="#{mesFormulairesBean.nbGenerate}"><f:ajax event="change"/></h:inputText>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>Nom</th>
-                                            <th>Nombre de questions</th>
+                                            <th>Nb questions</th>
                                             <th>Generate</th>
                                             <th>Réponses</th>
                                         </tr>
@@ -40,7 +41,13 @@
                                                 <td><h:commandButton value="#{quest.questionnaire.libelle}" action="#{mesFormulairesBean.initializeForm(quest,true)}" styleClass="btn btn-link"><f:ajax render="@all"/></h:commandButton></td>
                                                 <td>#{quest.nbQuestions}</td>
                                                 <td><h:commandButton value="***" action="#{mesFormulairesBean.saveReponse(quest)}" styleClass="btn btn-link"><f:ajax render="@all"/></h:commandButton></td>
-                                                <td>Voir</td>
+                                                <td>
+                                                    <ol>
+                                                        <ui:repeat value="#{quest.questionList}" var="question">
+                                                            <li><a href="#" onclick="callAjax(#{question.idQuestion})">#{question.libelle}</a></li>
+                                                        </ui:repeat>
+                                                    </ol>
+                                                </td>
                                             </tr>
                                         </ui:repeat>
                                     </tbody>
@@ -59,6 +66,14 @@
                             Réponse(s)
                         </div>
                         <div class="panel-body">
+                            <div class="col-lg-3">
+                                <div id="graph" style="width:300px;height:200px" ></div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div style="padding-left: 100%;">
+                                    <div id="graph2" style="width:300px;height:200px" ></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,5 +82,15 @@
         <!-- /.row -->
     </div>
     <!-- /#page-wrapper -->
+    <!-- jQuery -->
+    <h:outputScript name="/bower_components/jquery/dist/jquery.js" />
+    <!-- Bootstrap Core JavaScript -->
+    <!-- Custom Theme JavaScript -->
+    <h:outputScript name="/bower_components/flot/jquery.flot.js"/>
+    <!-- Custom Theme JavaScript -->
+    <h:outputScript name="/bower_components/flot/jquery.flot.pie.js"/>
+    <h:outputScript name="/bower_components/flot/jquery.flot.categories.js"/>
+    <!-- Custom JS -->
+    <h:outputScript name="/js/custom2.js"/>
 </ui:composition>
 </html>

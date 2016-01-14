@@ -20,7 +20,6 @@ public class StaticList {
     public static void setList(HashMap<String,ParamtypeQuestion> list) {
         mapTypeQuestion = new HashMap<String,ParamtypeQuestion>();
         mapTypeQuestion = list;
-        //test
     }
 }
 
