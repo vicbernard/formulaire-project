@@ -41,7 +41,7 @@ public class QuestionDAO implements QuestionDAOItf {
     }
 
     @Override
-    public Question find(Long id) {
+    public Question find(int id) {
         return em.find(Question.class,id);
     }
 

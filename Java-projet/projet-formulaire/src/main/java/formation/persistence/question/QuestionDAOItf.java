@@ -13,7 +13,7 @@ public interface QuestionDAOItf {
 
     public Question create(Question question);
 
-    public Question find(Long id);
+    public Question find(int id);
 
     public List<Question> findByQuestionnaireId(int id);
 }

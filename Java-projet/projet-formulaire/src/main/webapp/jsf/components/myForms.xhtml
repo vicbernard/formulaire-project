@@ -17,12 +17,13 @@
         </div>
         <!-- /.row -->
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Liste de vos formulaires
                         </div>
                         <div class="panel-body">
+                            <h:inputText value="#{mesFormulairesBean.nbGenerate}"><f:ajax event="change"/></h:inputText>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -30,6 +31,7 @@
                                             <th>Nom</th>
                                             <th>Nombre de questions</th>
                                             <th>Generate</th>
+                                            <th>Réponses</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -38,6 +40,7 @@
                                                 <td><h:commandButton value="#{quest.questionnaire.libelle}" action="#{mesFormulairesBean.initializeForm(quest,true)}" styleClass="btn btn-link"><f:ajax render="@all"/></h:commandButton></td>
                                                 <td>#{quest.nbQuestions}</td>
                                                 <td><h:commandButton value="***" action="#{mesFormulairesBean.saveReponse(quest)}" styleClass="btn btn-link"><f:ajax render="@all"/></h:commandButton></td>
+                                                <td>Voir</td>
                                             </tr>
                                         </ui:repeat>
                                     </tbody>
@@ -50,6 +53,15 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Réponse(s)
+                        </div>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
         <!-- /.row -->

@@ -19,5 +19,5 @@ public interface QuestionItf {
      * @param id the identifier of the #{Question}
      * @return  The found #{Question} or null if not found.
      */
-    public Question get(Long id);
+    public Question get(int id);
 }

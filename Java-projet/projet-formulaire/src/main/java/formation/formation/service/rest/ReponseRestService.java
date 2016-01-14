@@ -53,21 +53,32 @@ public class ReponseRestService {
     }
 
     @GET
-    @Path("/moyenne")
-    public Response getMoyenne(){
-        List<Question> listQ = questionDAOItf.findAll();
+    @Path("/moyenne/{id}")
+    public Response getMoyenne(@PathParam("id") @DefaultValue("0")int id){
 
-        if(listQ == null || listQ.isEmpty()){
+        List<Question> listQ = null;
+        Question question = null;
+        if(id == 0) {
+            listQ = questionDAOItf.findAll();
+            if(listQ == null || listQ.isEmpty()){
+                throw new NotFoundException("Question is not found");
+            }
+            question = listQ.get(0);
+        }else{
+            question = questionDAOItf.find(id);
+        }
+
+        if(question == null ){
             throw new NotFoundException("Question is not found");
         }
 
-        List<Reponse> reponses = reponseDAOItf.findByQuestion(listQ.get(0).getIdQuestion());
+        List<Reponse> reponses = reponseDAOItf.findByQuestion(question.getIdQuestion());
         //if(reponses == null || reponses.isEmpty()){
           //  throw new NotFoundException("Reponse is not found");
         //}
         System.out.println("taille: "+reponses.size());
         ReponseMoyenne rspm = new ReponseMoyenne();
-        rspm.setLibelleQuestion(listQ.get(0).getLibelle());
+        rspm.setLibelleQuestion(question.getLibelle());
         for(Reponse resp : reponses){
             System.out.println(resp.getReponse());
             if(resp.getReponse().equals("Non")){

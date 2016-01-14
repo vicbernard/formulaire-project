@@ -34,6 +34,8 @@ public class MesFormulairesBean implements Serializable {
 
     private Customer customer;
 
+    private int nbGenerate = 1;
+
     @EJB
     private CustomerDAOItf customerDAOItf;
 
@@ -54,6 +56,7 @@ public class MesFormulairesBean implements Serializable {
         customer = customerDAOItf.find(idUser);
         List<Questionnaire> mesQuestionnaires =  questionnaireDAOItf.ListQuestionnaireFindByUser(idUser);
         List<Question> mesQuestions = new ArrayList<>();
+        listeQuestionnaires = new ArrayList<>();
         if(mesQuestionnaires != null && !mesQuestionnaires.isEmpty()){
             for(Questionnaire q : mesQuestionnaires){
                 mesQuestions =questionDAOItf.findByQuestionnaireId(q.getIdQuestionnaire());
@@ -73,6 +76,7 @@ public class MesFormulairesBean implements Serializable {
         this.questionnaireDTO = questi;
         if(questionnaireDTO.getQuestionList() != null && !questionnaireDTO.getQuestionList().isEmpty()){
             List<Question> questions = questionnaireDTO.getQuestionList();
+            listReponses = new ArrayList<>();
             for(Question quest : questions){
                 Reponse rep = new Reponse();
                 rep.setQuestionByIdQuestion(quest);
@@ -84,25 +88,32 @@ public class MesFormulairesBean implements Serializable {
     public void saveReponse(QuestionnaireDTO questi){
         initializeForm(questi,false);
         System.out.println("SaveReponse ");
-        FormulaireReponses formulaireReponses = new FormulaireReponses();
-        formulaireReponses.setCustomerByIdUser(customer);
-        formulaireReponses = formulaireReponsesDAOItf.create(formulaireReponses);
+        System.out.println(nbGenerate);
+        for(int i=0;i<nbGenerate;i++) {
+            FormulaireReponses formulaireReponses = new FormulaireReponses();
+            formulaireReponses.setCustomerByIdUser(customer);
+            formulaireReponses = formulaireReponsesDAOItf.create(formulaireReponses);
+            for (Reponse r : listReponses) {
 
-        for(Reponse r: listReponses){
-            r.setFormulairereponsesByIdFormulaire(formulaireReponses);
-            if(r.getQuestionByIdQuestion().getParamtypequestionByIdType().getLibelle().equals("Oui/Non")){
-                int x=(Math.random()<0.5)?0:1;
-                if(x==0){
-                    r.setReponse("Oui");
-                }else {
-                    r.setReponse("Non");
+                //r.setFormulairereponsesByIdFormulaire(formulaireReponses);
+                if (r.getQuestionByIdQuestion().getParamtypequestionByIdType().getLibelle().equals("Oui/Non")) {
+                    int x = (Math.random() < 0.5) ? 0 : 1;
+                    if (x == 0) {
+                        r.setReponse("Oui");
+                    } else {
+                        r.setReponse("Non");
+                    }
+                } else if (r.getQuestionByIdQuestion().getParamtypequestionByIdType().getLibelle().equals("Date")) {
+                    r.setReponse("12/12/1986");
+                } else {
+                    r.setReponse("Texte de test...");
                 }
-            }else if(r.getQuestionByIdQuestion().getParamtypequestionByIdType().getLibelle().equals("Date")){
-                r.setReponse("12/12/1986");
-            }else{
-                r.setReponse("Texte de test...");
+                Reponse repSave = new Reponse();
+                repSave.setFormulairereponsesByIdFormulaire(formulaireReponses);
+                repSave.setReponse(r.getReponse());
+                repSave.setQuestionByIdQuestion(r.getQuestionByIdQuestion());
+                reponseDAOItf.create(repSave);
             }
-            reponseDAOItf.create(r);
         }
     }
 
@@ -136,5 +147,13 @@ public class MesFormulairesBean implements Serializable {
 
     public void setAfficherForm(Boolean afficherForm) {
         this.afficherForm = afficherForm;
+    }
+
+    public int getNbGenerate() {
+        return nbGenerate;
+    }
+
+    public void setNbGenerate(int nbGenerate) {
+        this.nbGenerate = nbGenerate;
     }
 }

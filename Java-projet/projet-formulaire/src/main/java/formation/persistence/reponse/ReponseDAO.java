@@ -32,6 +32,7 @@ public class ReponseDAO implements ReponseDAOItf {
         //TODO manage transaction ??
         try {
             em.persist(reponse);
+            //em.flush();
         } catch (ConstraintViolationException e) {
             for (ConstraintViolation<?> constraintViolation : e.getConstraintViolations()) {
                 throw new IllegalArgumentException(constraintViolation.getMessage(), e);

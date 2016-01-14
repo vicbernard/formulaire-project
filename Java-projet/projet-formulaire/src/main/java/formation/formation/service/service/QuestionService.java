@@ -26,7 +26,7 @@ public class QuestionService  implements QuestionItf{
     }
 
     @Override
-    public Question get(Long id) {
+    public Question get(int id) {
         return dao.find(id);
     }
 }

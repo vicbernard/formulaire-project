@@ -27,7 +27,7 @@ public class QuestionRestService {
 
     @GET
     @Path("/{id}")
-    public Response get(@PathParam("id")Long id){
+    public Response get(@PathParam("id")int id){
         Question q = service.get(id);
         if(q == null){
             throw new NotFoundException("Question is not found");
