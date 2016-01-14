@@ -76,7 +76,7 @@ public class ReponseRestService {
         //if(reponses == null || reponses.isEmpty()){
           //  throw new NotFoundException("Reponse is not found");
         //}
-        System.out.println("taille: "+reponses.size());
+        //System.out.println("taille: "+reponses.size());
         ReponseMoyenne rspm = new ReponseMoyenne();
         rspm.setLibelleQuestion(question.getLibelle());
         for(Reponse resp : reponses){
@@ -87,6 +87,14 @@ public class ReponseRestService {
                 rspm.setNbOui(rspm.getNbOui()+1);
             }
         }
-        return Response.ok(rspm).build();
+        //return Response.ok(rspm).getHeaders().add("Access-Control-Allow-Origin", "*").build();
+        return Response
+                .ok(rspm)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Max-Age", "1209600")
+                .build();
     }
 }
