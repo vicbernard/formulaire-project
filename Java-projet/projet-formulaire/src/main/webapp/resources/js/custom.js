@@ -1,20 +1,21 @@
 //Flot Line Chart
 $(document).ready(function() {
-    console.log("document ready");
 
-    //var data = [],
-    //    series = Math.floor(Math.random() * 6) + 3;
-    //
-    //for (var i = 0; i < series; i++) {
-    //    data[i] = {
-    //        label: "Series" + (i + 1),
-    //        data: Math.floor(Math.random() * 100) + 1
-    //    }
-    //}
+    function callAjax() {
+        return $.ajax({
+            url:  "http://localhost:8080/projet-1.0.0-SNAPSHOT/rs/reponse/moyenne",
+            dataType: 'jsonp'
 
-    var text = '{"libelleQuestion":"test","nbNon":5 ,"nbOui":15}';
-    var obj = JSON.parse(text);
+    });
+    }
+
+    var result = callAjax();
+
+   console.log(result);
+    //var text = '{"libelleQuestion":"test","nbNon":5 ,"nbOui":15}';
+    var obj = JSON.parse(result);
     var data = [];
+    console.log(obj);
 
     data[0] = {
         label: "non",
@@ -39,6 +40,4 @@ $(document).ready(function() {
             show: false
         }
     });
-
-    //http://desktop-ipgg17v:8080/projet-1.0.0-SNAPSHOT/
 });
