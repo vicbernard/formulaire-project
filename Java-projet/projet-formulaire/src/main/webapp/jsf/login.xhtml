@@ -27,7 +27,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Se connecter</h3>
                     </div>
                     <div class="panel-body">
                         <h:form id="form">
@@ -39,10 +39,11 @@
                                     <h:message for="mail" style="color:red"/>
                                 </div>
                                 <div class="form-group">
-                                    <h:inputSecret id="mdp" styleClass="form-control" a:placeholder="Password" value="#{connectionBean.customer.pwd}" required="true" requiredMessage="Champs Obligatoire"/>
+                                    <h:inputSecret id="mdp" styleClass="form-control" a:placeholder="Mot de passe" value="#{connectionBean.customer.pwd}" required="true" requiredMessage="Champs Obligatoire"/>
                                     <h:message for="mdp" style="color:red"/>
                                 </div>
-                                <h:commandButton value="Login" action="#{connectionBean.connection}" styleClass="btn btn-lg btn-success btn-block"/>
+                                <h:commandButton value="Se connecter" action="#{connectionBean.connection}" styleClass="btn btn-lg btn-success btn-block"/><br/>
+                                <a href="#{request.contextPath}/inscription.xhtml"><i class="fa fa-user fa-fw"></i>Inscription</a>
 
                             </fieldset>
                         </h:form>

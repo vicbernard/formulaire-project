@@ -18,9 +18,12 @@
             <a class="navbar-brand" href="index.html">Gestion de formulaires</a>
         </div>
         <!-- /.navbar-header -->
-        <div class="nav navbar-top-links navbar-right">
-            <h:outputText value="Connecté en tant que: #{sessionBean.customer.mail}"></h:outputText>
-        </div>
+        <h:form>
+            <div class="nav navbar-top-links navbar-right">
+                <h:outputText value="Connecté en tant que: #{sessionBean.customer.mail}"></h:outputText><br/>
+                <i class="fa fa-sign-out fa-fw"></i><h:commandButton value="Se deconnecter" action="#{sessionBean.deconnect}" styleClass="btn btn-link"></h:commandButton>
+            </div>
+        </h:form>
         <!-- /.navbar-top-links -->
 
         <div class="navbar-default sidebar" role="navigation">

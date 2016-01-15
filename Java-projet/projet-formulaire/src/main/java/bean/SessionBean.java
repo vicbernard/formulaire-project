@@ -8,6 +8,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +41,16 @@ public class SessionBean implements Serializable {
             //System.out.println(p.getLibelle());
         }
         StaticList.setList(mapTypeQuestion);
+    }
+
+    public void deconnect(){
+        this.customer = null;
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            context.redirect("login.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<ParamtypeQuestion> getListeTypeQuestion() {

@@ -32,6 +32,7 @@ formation\formation\service\service\ParamtypeQuestionService.class
 formation\domain\Questionnaire_.class
 formation\domain\Reponseqcm.class
 formation\persistence\reponse\ReponseDAO.class
+bean\InscriptionBean.class
 formation\persistence\reponse\ReponseDAOItf.class
 formation\formation\service\rest\CustomerRestService.class
 formation\domain\FormulaireReponses.class

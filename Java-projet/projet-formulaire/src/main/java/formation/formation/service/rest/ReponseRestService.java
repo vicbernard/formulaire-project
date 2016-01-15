@@ -80,7 +80,7 @@ public class ReponseRestService {
         ReponseMoyenne rspm = new ReponseMoyenne();
         rspm.setLibelleQuestion(question.getLibelle());
         for(Reponse resp : reponses){
-            System.out.println(resp.getReponse());
+            //System.out.println(resp.getReponse());
             if(resp.getReponse().equals("Non")){
                 rspm.setNbNon(rspm.getNbNon()+1);
             }else{
